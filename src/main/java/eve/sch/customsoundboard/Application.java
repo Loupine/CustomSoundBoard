@@ -7,16 +7,32 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
+
+    private static FXMLLoader fxmlLoader;
+    private static Scene scene;
+    private static Stage appStage;
+
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main_menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("CustomSoundBoard");
-        stage.setScene(scene);
-        stage.show();
+        appStage = stage;
+        fxmlLoader = new FXMLLoader(Application.class.getResource("main_menu.fxml"));
+        scene = new Scene(fxmlLoader.load());
+        appStage.setTitle("Main Menu");
+        appStage.setScene(scene);
+        appStage.show();
     }
+
 
     public static void main(String[] args) {
         launch();
+    }
+
+
+    public static void loadBoardCreationMenu() throws IOException {
+        fxmlLoader = new FXMLLoader(Application.class.getResource("board_creation_menu.fxml"));
+        scene = new Scene(fxmlLoader.load());
+        appStage.setTitle("Board Creation Menu");
+        appStage.setScene(scene);
     }
 }

@@ -47,21 +47,21 @@
       <HBox alignment="CENTER" layoutX="54.0" layoutY="57.0" spacing="15.0">
          <children>
             <VBox alignment="CENTER" spacing="10.0">
-               <Label text="Columns">
+               <Label fx:id="columnLabel" text="1 Column(s)">
                   <font>
                      <Font size="18.0"/>
                   </font>
                </Label>
                <Slider fx:id="columnSlider" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="0"
-                       onMouseDragReleased="#onUpdateColumnCount" showTickLabels="true" showTickMarks="true"
+                       onMouseReleased="#onUpdateColumnCount" showTickLabels="true" showTickMarks="true"
                        snapToTicks="true" style="-fx-background-color: azure;" value="1.0"/>
-               <Label layoutX="66.0" layoutY="106.0" text="Rows">
+               <Label fx:id="rowLabel" text="1 Row(s)">
                   <font>
                      <Font size="18.0"/>
                   </font>
                </Label>
                <Slider fx:id="rowSlider" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="0"
-                       onMouseDragReleased="#onUpdateRowCount" showTickLabels="true" showTickMarks="true"
+                       onMouseReleased="#onUpdateRowCount" showTickLabels="true" showTickMarks="true"
                        snapToTicks="true" style="-fx-background-color: orange;" value="1.0"/>
             </VBox>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#onCreateBoardButtonPress" text="Create">

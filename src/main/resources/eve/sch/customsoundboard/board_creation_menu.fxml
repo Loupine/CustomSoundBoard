@@ -41,38 +41,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="eve.sch.customsoundboard.Controller">
-   <children>
-      <HBox alignment="CENTER" layoutX="54.0" layoutY="57.0" spacing="15.0">
-         <children>
-            <VBox alignment="CENTER" spacing="10.0">
-               <Label fx:id="columnLabel" text="1 Column(s)">
-                  <font>
-                     <Font size="18.0"/>
-                  </font>
-               </Label>
-               <Slider fx:id="columnSlider" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="0"
-                       onMouseReleased="#onUpdateColumnCount" showTickLabels="true" showTickMarks="true"
-                       snapToTicks="true" style="-fx-background-color: azure;" value="1.0"/>
-               <Label fx:id="rowLabel" text="1 Row(s)">
-                  <font>
-                     <Font size="18.0"/>
-                  </font>
-               </Label>
-               <Slider fx:id="rowSlider" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="0"
-                       onMouseReleased="#onUpdateRowCount" showTickLabels="true" showTickMarks="true"
-                       snapToTicks="true" style="-fx-background-color: orange;" value="1.0"/>
-            </VBox>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#onCreateBoardButtonPress" text="Create">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
-   </children>
+<AnchorPane style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/17.0.6"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="eve.sch.customsoundboard.MenuController">
    <padding>
-      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
    </padding>
+   <HBox alignment="CENTER" layoutX="54.0" layoutY="57.0" spacing="15.0">
+      <VBox alignment="CENTER" spacing="10.0">
+         <Label fx:id="columnLabel" text="1 Column(s)">
+            <font>
+               <Font size="18.0"/>
+            </font>
+         </Label>
+         <Slider fx:id="columnSlider" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="0"
+                 onMouseReleased="#onUpdateColumnCount" showTickLabels="true" showTickMarks="true"
+                 snapToTicks="true" style="-fx-background-color: azure;" value="1.0"/>
+         <Label fx:id="rowLabel" text="1 Row(s)">
+            <font>
+               <Font size="18.0"/>
+            </font>
+         </Label>
+         <Slider fx:id="rowSlider" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="0"
+                 onMouseReleased="#onUpdateRowCount" showTickLabels="true" showTickMarks="true"
+                 snapToTicks="true" style="-fx-background-color: orange;" value="1.0"/>
+      </VBox>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#onCreateBoardButtonPress" text="Create">
+         <font>
+            <Font size="18.0"/>
+         </font>
+      </Button>
+   </HBox>
 </AnchorPane>

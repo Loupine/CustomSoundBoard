@@ -8,18 +8,14 @@ import java.io.IOException;
 
 public class Application extends javafx.application.Application {
 
-    private static FXMLLoader fxmlLoader;
-    private static Scene scene;
     private static Stage appStage;
 
 
     @Override
     public void start(Stage stage) throws IOException {
         appStage = stage;
-        fxmlLoader = new FXMLLoader(Application.class.getResource("main_menu.fxml"));
-        scene = new Scene(fxmlLoader.load());
-        appStage.setTitle("Main Menu");
-        appStage.setScene(scene);
+        appStage.setTitle("CustomSoundBoard");
+        loadFXMLScene("main_menu.fxml");
         appStage.show();
     }
 
@@ -29,10 +25,8 @@ public class Application extends javafx.application.Application {
     }
 
 
-    public static void loadBoardCreationMenu() throws IOException {
-        fxmlLoader = new FXMLLoader(Application.class.getResource("board_creation_menu.fxml"));
-        scene = new Scene(fxmlLoader.load());
-        appStage.setTitle("Board Creation Menu");
-        appStage.setScene(scene);
+    public static void loadFXMLScene(String resourceName) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource(resourceName));
+        appStage.setScene(new Scene(loader.load()));
     }
 }

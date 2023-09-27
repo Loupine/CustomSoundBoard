@@ -17,7 +17,7 @@ public class MenuController {
 
     public void onNewBoardButtonPress() throws IOException {
         System.out.println("new board pressed");
-        Application.loadBoardCreationMenu();
+        Application.loadFXMLScene("board_creation_menu.fxml");
     }
 
 

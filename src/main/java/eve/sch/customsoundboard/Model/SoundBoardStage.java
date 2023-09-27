@@ -26,13 +26,14 @@ public class SoundBoardStage extends Stage {
         this.centerOnScreen();
 
         initializeButtons();
-        formatScene();
+        addHBoxesOfButtons();
         this.show();
     }
 
 
     private void initializeButtons() {
         int totalButtons = columns * rows;
+
         for(int i = 0; i < totalButtons; i++) {
             Button newButton = new Button("Button" + i);
             newButton.setFont(new Font(12));
@@ -41,7 +42,7 @@ public class SoundBoardStage extends Stage {
     }
 
 
-    private void formatScene() {
+    private void addHBoxesOfButtons() {
         rowVBox.setAlignment(Pos.CENTER);
 
         for(int rowIndex = 0; rowIndex < rows; rowIndex++) {

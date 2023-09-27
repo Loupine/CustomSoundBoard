@@ -3,6 +3,8 @@ module eve.sch.customsoundboard {
     requires javafx.fxml;
 
 
-    opens eve.sch.customsoundboard to javafx.fxml;
-    exports eve.sch.customsoundboard;
+    exports eve.sch.customsoundboard.View;
+    opens eve.sch.customsoundboard.View to javafx.fxml;
+    exports eve.sch.customsoundboard.Model;
+    opens eve.sch.customsoundboard.Model to javafx.fxml;
 }

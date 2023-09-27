@@ -1,4 +1,4 @@
-package eve.sch.customsoundboard;
+package eve.sch.customsoundboard.View;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

@@ -1,5 +1,6 @@
-package eve.sch.customsoundboard;
+package eve.sch.customsoundboard.Model;
 
+import eve.sch.customsoundboard.View.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;

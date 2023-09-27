@@ -16,7 +16,6 @@ public class MenuController {
     @FXML
 
     public void onNewBoardButtonPress() throws IOException {
-        System.out.println("new board pressed");
         Application.loadFXMLScene("board_creation_menu.fxml");
     }
 
@@ -39,5 +38,7 @@ public class MenuController {
 
 
     public void onCreateBoardButtonPress() {
+        // Create a new standalone stage with (columnSlider * rowSlider) buttons in a new window
+        new SoundBoardStage((int) columnSlider.getValue(), (int) rowSlider.getValue());
     }
 }

@@ -36,7 +36,7 @@ public class SoundBoardStage extends Stage {
         int totalButtons = columns * rows;
 
         for(int i = 0; i < totalButtons; i++) {
-            Button newButton = new ModifiableButton();
+            Button newButton = new ModifiableSoundButton();
             newButton.setText("Button " + i);
             newButton.setFont(new Font(12));
             buttonArrayList.add(newButton);

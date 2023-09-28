@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 import java.io.File;
 
 
-public class ModifiableButton extends Button {
+public class ModifiableSoundButton extends Button {
 
     private AudioClip audioClip;
     private final FileChooser fileChooser = new FileChooser();
 
 
-    public ModifiableButton() {
+    public ModifiableSoundButton() {
         setOnAction(event -> toggleAudioPlaying());
         setOnMousePressed(event -> {
             // When button is right-clicked

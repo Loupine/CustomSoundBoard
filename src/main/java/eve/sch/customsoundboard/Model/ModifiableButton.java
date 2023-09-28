@@ -22,7 +22,7 @@ public class ModifiableButton extends Button {
                 selectNewSound();
             }
         });
-
+        // Limit selectable files in the file chooser
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
                 "Audio Files", "*.wav", "*.mp3", "*.mp4", "*.ogg"));
     }
@@ -38,6 +38,7 @@ public class ModifiableButton extends Button {
 
 
     private void selectNewSound() {
+        // Opens a file selection menu in a new stage window
         File newlySelectedSound = fileChooser.showOpenDialog(new Stage());
         if(newlySelectedSound != null) {
             setText(newlySelectedSound.getName());

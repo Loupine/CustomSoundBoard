@@ -14,7 +14,25 @@ public class ModifiableSoundButton extends Button {
     private final FileChooser fileChooser = new FileChooser();
 
 
+    public ModifiableSoundButton(File mainDirectory) {
+        assignButtonEvents();
+
+        // Set the main folder and limit selection file types
+        fileChooser.setInitialDirectory(mainDirectory);
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
+                "Audio Files", "*.wav", "*.mp3", "*.mp4", "*.ogg"));
+    }
+
+    // Second constructor for if a main directory was not selected
     public ModifiableSoundButton() {
+        assignButtonEvents();
+
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
+                "Audio Files", "*.wav", "*.mp3", "*.mp4", "*.ogg"));
+    }
+
+
+    private void assignButtonEvents() {
         setOnAction(event -> toggleAudioPlaying());
         setOnMousePressed(event -> {
             // When button is right-clicked
@@ -22,9 +40,6 @@ public class ModifiableSoundButton extends Button {
                 selectNewSound();
             }
         });
-        // Limit selectable files in the file chooser
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
-                "Audio Files", "*.wav", "*.mp3", "*.mp4", "*.ogg"));
     }
 
 

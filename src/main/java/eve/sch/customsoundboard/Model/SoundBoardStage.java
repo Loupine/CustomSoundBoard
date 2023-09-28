@@ -5,9 +5,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class SoundBoardStage extends Stage {
@@ -16,19 +17,35 @@ public class SoundBoardStage extends Stage {
     private final int rows;
     private final ArrayList<Button> buttonArrayList = new ArrayList<>();
     private final VBox rowVBox = new VBox();
+    private final DirectoryChooser directoryChooser = new DirectoryChooser();
+    private File mainDirectory;
 
 
     public SoundBoardStage(int columns, int rows) {
         this.columns = columns;
         this.rows = rows;
 
+        chooseMainDirectory();
+        prepareStage();
+        show();
+    }
+
+
+    private void chooseMainDirectory() {
+        directoryChooser.setTitle("Choose A Directory Containing Sound Files");
+        File chosenDirectory = directoryChooser.showDialog(new Stage());
+        if(chosenDirectory != null) {
+            mainDirectory = chosenDirectory;
+        }
+    }
+
+
+    private void prepareStage() {
         initializeButtons();
         addHBoxesOfButtons();
-
         setScene(new Scene(rowVBox));
         setTitle("CustomBoard");
         centerOnScreen();
-        show();
     }
 
 
@@ -36,9 +53,8 @@ public class SoundBoardStage extends Stage {
         int totalButtons = columns * rows;
 
         for(int i = 0; i < totalButtons; i++) {
-            Button newButton = new ModifiableSoundButton();
-            newButton.setText("Button " + i);
-            newButton.setFont(new Font(12));
+            // If mainDirectory is specified, pass it to the button
+            Button newButton = mainDirectory != null ? new ModifiableSoundButton(mainDirectory) : new ModifiableSoundButton();
             buttonArrayList.add(newButton);
         }
     }

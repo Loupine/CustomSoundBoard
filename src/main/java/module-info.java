@@ -1,5 +1,6 @@
 module eve.sch.customsoundboard {
     requires javafx.controls;
+    requires javafx.media;
     requires javafx.fxml;
 
 

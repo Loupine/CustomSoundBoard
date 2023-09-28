@@ -15,7 +15,7 @@ public class ModifiableButton extends Button {
 
 
     public ModifiableButton() {
-        setOnAction(event -> playSelectedSound());
+        setOnAction(event -> toggleAudioPlaying());
         setOnMousePressed(event -> {
             // When button is right-clicked
             if (event.isSecondaryButtonDown()) {
@@ -28,9 +28,12 @@ public class ModifiableButton extends Button {
     }
 
 
-    private void playSelectedSound() {
-        System.out.println("Selected sound played");
-        audioClip.play();
+    private void toggleAudioPlaying() {
+        if(audioClip.isPlaying()) {
+            audioClip.stop();
+        }else {
+            audioClip.play();
+        }
     }
 
 

@@ -21,13 +21,14 @@ public class SoundBoardStage extends Stage {
     public SoundBoardStage(int columns, int rows) {
         this.columns = columns;
         this.rows = rows;
-        this.setScene(new Scene(rowVBox));
-        this.setTitle("CustomBoard");
-        this.centerOnScreen();
 
         initializeButtons();
         addHBoxesOfButtons();
-        this.show();
+
+        setScene(new Scene(rowVBox));
+        setTitle("CustomBoard");
+        centerOnScreen();
+        show();
     }
 
 

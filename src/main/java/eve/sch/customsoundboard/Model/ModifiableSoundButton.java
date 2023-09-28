@@ -2,6 +2,7 @@ package eve.sch.customsoundboard.Model;
 
 import javafx.scene.control.Button;
 import javafx.scene.media.AudioClip;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ public class ModifiableSoundButton extends Button {
 
     public ModifiableSoundButton(File mainDirectory) {
         assignButtonEvents();
-
+        formatButton();
         // Set the main folder and limit selection file types
         fileChooser.setInitialDirectory(mainDirectory);
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
@@ -26,6 +27,7 @@ public class ModifiableSoundButton extends Button {
     // Second constructor for if a main directory was not selected
     public ModifiableSoundButton() {
         assignButtonEvents();
+        formatButton();
 
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
                 "Audio Files", "*.wav", "*.mp3", "*.mp4", "*.ogg"));
@@ -40,6 +42,13 @@ public class ModifiableSoundButton extends Button {
                 selectNewSound();
             }
         });
+    }
+
+
+    private void formatButton() {
+        setFont(new Font(12));
+        setMaxSize(50,50);
+        setMinSize(50,50);
     }
 
 

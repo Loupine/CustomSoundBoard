@@ -43,6 +43,8 @@ public class SoundBoardStage extends Stage {
     private void prepareStage() {
         initializeButtons();
         addHBoxesOfButtons();
+        rowVBox.setAlignment(Pos.CENTER);
+        rowVBox.setSpacing(10);
         setScene(new Scene(rowVBox));
         setTitle("CustomBoard");
         centerOnScreen();
@@ -61,13 +63,19 @@ public class SoundBoardStage extends Stage {
 
 
     private void addHBoxesOfButtons() {
-        rowVBox.setAlignment(Pos.CENTER);
-
         for(int rowIndex = 0; rowIndex < rows; rowIndex++) {
-            HBox currentHBox = new HBox();
-            rowVBox.getChildren().add(currentHBox);
+            HBox currentHBox = createNewHBox();
             assignButtonsToHBox(currentHBox, rowIndex);
+            rowVBox.getChildren().add(currentHBox);
         }
+    }
+
+
+    private HBox createNewHBox() {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(10);
+        return hBox;
     }
 
 
